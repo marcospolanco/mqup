@@ -1,0 +1,12 @@
+{
+  "expectedResultsState" : "loading",
+  "expectedTop3IDs" : [
+    "00000000-0000-0000-0000-00000000013e",
+    "00000000-0000-0000-0000-000000000002",
+    "00000000-0000-0000-0000-0000000001b3"
+  ],
+  "id" : "MQUP-LOAD-01",
+  "nowISO8601" : "2026-06-16T14:30:00Z",
+  "query" : "coffee shops with parking open now",
+  "simulateLoading" : true
+}

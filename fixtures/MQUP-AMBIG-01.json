@@ -1,0 +1,12 @@
+{
+  "expectedResultsState" : "golden",
+  "expectedTop3IDs" : [
+    "00000000-0000-0000-0000-0000000007c6",
+    "00000000-0000-0000-0000-000000000475",
+    "00000000-0000-0000-0000-0000000006be"
+  ],
+  "id" : "MQUP-AMBIG-01",
+  "nowISO8601" : "2026-06-16T14:30:00Z",
+  "query" : "place to work",
+  "simulateLoading" : false
+}

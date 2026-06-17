@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-and-eval:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+      - name: Generate data
+        run: |
+          python3 scripts/generate_pois.py
+          python3 scripts/generate_eval_queries.py
+          python3 scripts/generate_fixtures.py
+      - name: Test
+        run: swift test
+      - name: Label and eval (release)
+        run: |
+          swift build -c release
+          .build/release/MQUPEval --label
+          .build/release/MQUPEval
+      - name: Upload metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: metrics
+          path: metrics.json

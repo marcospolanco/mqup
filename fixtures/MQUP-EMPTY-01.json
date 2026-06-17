@@ -1,0 +1,10 @@
+{
+  "expectedResultsState" : "empty",
+  "expectedTop3IDs" : [
+
+  ],
+  "id" : "MQUP-EMPTY-01",
+  "nowISO8601" : "2026-06-16T04:00:00Z",
+  "query" : "sushi at 4am",
+  "simulateLoading" : false
+}

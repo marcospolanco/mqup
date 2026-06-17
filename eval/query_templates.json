@@ -1,0 +1,902 @@
+[
+  {
+    "id": "Q001",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q002",
+    "query": "quiet cafe with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q003",
+    "query": "late night food open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q004",
+    "query": "place to work with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q005",
+    "query": "retail store with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q006",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q007",
+    "query": "coworking space with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q008",
+    "query": "bakery open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q009",
+    "query": "pizza with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q010",
+    "query": "sushi restaurant open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q011",
+    "query": "coffee with drive through",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q012",
+    "query": "grocery with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q013",
+    "query": "food with parking near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q014",
+    "query": "service location with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q015",
+    "query": "cafe with outdoor seating open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q016",
+    "query": "coffee shop open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q017",
+    "query": "retail with wifi open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q018",
+    "query": "food open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q019",
+    "query": "coffee with parking and wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q020",
+    "query": "place to work open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q021",
+    "query": "coffee shops with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q022",
+    "query": "food with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q023",
+    "query": "retail open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q024",
+    "query": "coffee with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q025",
+    "query": "service with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q026",
+    "query": "bakery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q027",
+    "query": "pizza open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q028",
+    "query": "coffee shops with wifi open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q029",
+    "query": "grocery with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q030",
+    "query": "coworking with wifi open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": true
+  },
+  {
+    "id": "Q031",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q032",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q033",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q034",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q035",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q036",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q037",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q038",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q039",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q040",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q041",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q042",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q043",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q044",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q045",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q046",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q047",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q048",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q049",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q050",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q051",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q052",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q053",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q054",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q055",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q056",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q057",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q058",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q059",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q060",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q061",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q062",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q063",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q064",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q065",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q066",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q067",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q068",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q069",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q070",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q071",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q072",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q073",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q074",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q075",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q076",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q077",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q078",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q079",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q080",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q081",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q082",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q083",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q084",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q085",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q086",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q087",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q088",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q089",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q090",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q091",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q092",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q093",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q094",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q095",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q096",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q097",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q098",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q099",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q100",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q101",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q102",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q103",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q104",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q105",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q106",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q107",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q108",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q109",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q110",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q111",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q112",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q113",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q114",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q115",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q116",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q117",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q118",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q119",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q120",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q121",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q122",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q123",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q124",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q125",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q126",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q127",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q128",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q129",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q130",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q131",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q132",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q133",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q134",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q135",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q136",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q137",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q138",
+    "query": "find bakeries near me",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q139",
+    "query": "place to work",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q140",
+    "query": "grocery with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q141",
+    "query": "library open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q142",
+    "query": "coworking space",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q143",
+    "query": "retail store with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q144",
+    "query": "coffee with outdoor seating",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q145",
+    "query": "food with parking",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q146",
+    "query": "coffee open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q147",
+    "query": "sushi at 4am",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q148",
+    "query": "coffee shops with parking open now",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q149",
+    "query": "pizza",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  },
+  {
+    "id": "Q150",
+    "query": "coffee with wifi",
+    "nowISO8601": "2026-06-16T14:30:00Z",
+    "blindHoldout": false
+  }
+]

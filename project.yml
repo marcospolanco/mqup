@@ -1,0 +1,28 @@
+name: MQUP
+options:
+  bundleIdPrefix: com.marcospolanco
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  MQUPEngine:
+    path: .
+targets:
+  MQUP:
+    type: application
+    platform: iOS
+    sources:
+      - path: MQUPApp
+        excludes:
+          - Resources/**
+      - path: MQUPApp/Resources
+        buildPhase: resources
+    dependencies:
+      - package: MQUPEngine
+        product: MQUPEngine
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.marcospolanco.mqup
+      INFOPLIST_FILE: MQUPApp/Info.plist
+      CODE_SIGN_ENTITLEMENTS: MQUPApp/MQUP.entitlements
+      SWIFT_VERSION: "5.9"
+    entitlements:
+      path: MQUPApp/MQUP.entitlements
