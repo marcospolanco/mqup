@@ -6,5 +6,3 @@ DerivedData/
 xcuserdata/
 .DS_Store
 
-# Internal spec — not for publication yet
-mqup-spec.md
