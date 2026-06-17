@@ -19,6 +19,9 @@ final class AppModel: ObservableObject {
             }
             let pois = try POILoader.load(from: url)
             coordinator = try SearchCoordinator(pois: pois)
+            Task {
+                try? await POIService.shared.donateSuggestedEntities()
+            }
         } catch {
             errorMessage = "Could not load places data."
         }
@@ -32,10 +35,21 @@ final class AppModel: ObservableObject {
         isSearching = true
         errorMessage = nil
         do {
-            submission = try coordinator.submit(query: queryText, now: now)
+            let result = try coordinator.submit(query: queryText, now: now)
+            submission = result
+            Task {
+                await POIService.shared.donateEntities(for: result.results)
+            }
         } catch {
             errorMessage = "Something went wrong while searching."
         }
         isSearching = false
+    }
+
+    func donateResult(id: UUID) {
+        guard let poi = submission?.results.first(where: { $0.poi.id == id })?.poi else { return }
+        Task {
+            await POIService.shared.donateEntity(for: poi)
+        }
     }
 }

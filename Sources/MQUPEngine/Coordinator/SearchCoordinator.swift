@@ -50,12 +50,6 @@ public final class SearchCoordinator: @unchecked Sendable {
         if results.isEmpty {
             return .empty
         }
-        if intent.categories.count >= 3 {
-            let categoriesInTop = Set(results.prefix(5).map(\.poi.category))
-            if categoriesInTop.count >= 3 {
-                return .ambiguous
-            }
-        }
         if classifyAmbiguity(results: results) {
             return .ambiguous
         }

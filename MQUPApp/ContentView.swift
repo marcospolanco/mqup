@@ -14,7 +14,7 @@ struct ContentView: View {
                         .padding()
                 }
                 if let viewModel = appModel.submission?.view {
-                    SearchResultsScreen(viewModel: viewModel)
+                    SearchResultsScreen(viewModel: viewModel, onResultTap: appModel.donateResult)
                 } else {
                     ContentUnavailableView(
                         "Find places that fit",

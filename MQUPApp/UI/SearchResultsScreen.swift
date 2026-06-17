@@ -4,6 +4,7 @@ import SwiftUI
 
 struct SearchResultsScreen: View {
     let viewModel: SearchResultsView
+    var onResultTap: (UUID) -> Void = { _ in }
     @State private var selectedID: UUID?
     @State private var expandedID: UUID?
 
@@ -63,6 +64,7 @@ struct SearchResultsScreen: View {
                     expandedID = expandedID == row.id ? nil : row.id
                 },
                 onNavigate: {
+                    onResultTap(row.id)
                     NavigationLauncher.openInMaps(
                         name: row.name,
                         latitude: row.latitude,

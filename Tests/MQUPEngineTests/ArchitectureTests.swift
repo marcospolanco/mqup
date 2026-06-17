@@ -7,9 +7,12 @@ final class ArchitectureTests: XCTestCase {
         "EmbeddingIndex",
         "QueryIntent",
         "HybridRanker",
+        "QueryIntentExtractor",
+        "SearchCoordinator",
+        "SearchSubmission",
     ]
 
-    func testUIFilesDoNotImportDomainTypes() throws {
+    func testUIFilesDoNotReferenceDomainTypes() throws {
         let uiDir = repoRoot().appendingPathComponent("MQUPApp/UI")
         let files = try FileManager.default.contentsOfDirectory(at: uiDir, includingPropertiesForKeys: nil)
             .filter { $0.pathExtension == "swift" }
@@ -18,11 +21,15 @@ final class ArchitectureTests: XCTestCase {
             let source = try String(contentsOf: file, encoding: .utf8)
             for token in forbiddenTokens {
                 XCTAssertFalse(
-                    source.contains("import \(token)"),
-                    "\(file.lastPathComponent) must not import \(token)"
+                    sourceContainsToken(source, token: token),
+                    "\(file.lastPathComponent) must not reference \(token) (SEM-011 presentation boundary)"
                 )
             }
         }
+    }
+
+    private func sourceContainsToken(_ source: String, token: String) -> Bool {
+        source.range(of: "\\b\(token)\\b", options: .regularExpression) != nil
     }
 
     private func repoRoot() -> URL {

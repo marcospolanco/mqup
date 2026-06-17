@@ -29,10 +29,15 @@ struct SpatialVenueEntity: AppEntity, IndexedEntity {
     }
 }
 
-struct SpatialVenueQuery: EntityQuery {
+struct SpatialVenueQuery: EntityQuery, EntityStringQuery {
     func entities(for identifiers: [UUID]) async throws -> [SpatialVenueEntity] {
         let pois = try await POIService.shared.allPOIs()
         return pois.filter { identifiers.contains($0.id) }.map(SpatialVenueEntity.init)
+    }
+
+    func entities(matching string: String) async throws -> [SpatialVenueEntity] {
+        let submission = try await POIService.shared.search(query: string)
+        return submission.results.prefix(10).map { SpatialVenueEntity(from: $0.poi) }
     }
 
     func suggestedEntities() async throws -> [SpatialVenueEntity] {

@@ -27,27 +27,12 @@ public struct EvalQueryTemplate: Codable, Sendable {
     public let query: String
     public let nowISO8601: String
     public let blindHoldout: Bool
-}
 
-public enum EvalLabeler {
-    /// Labels each query with the top-K POI IDs returned by the hybrid ranker (retrieval-aligned oracle).
-    public static func label(
-        templates: [EvalQueryTemplate],
-        coordinator: SearchCoordinator,
-        labelK: Int = 10
-    ) throws -> [EvalQuery] {
-        try templates.map { template in
-            let now = EvalHarness.parseDate(template.nowISO8601) ?? Date()
-            let submission = try coordinator.submit(query: template.query, now: now)
-            let relevant = submission.results.prefix(labelK).map { $0.poi.id.uuidString.lowercased() }
-            return EvalQuery(
-                id: template.id,
-                query: template.query,
-                relevantPOIIDs: Array(relevant),
-                nowISO8601: template.nowISO8601,
-                blindHoldout: template.blindHoldout
-            )
-        }
+    public init(id: String, query: String, nowISO8601: String, blindHoldout: Bool) {
+        self.id = id
+        self.query = query
+        self.nowISO8601 = nowISO8601
+        self.blindHoldout = blindHoldout
     }
 }
 

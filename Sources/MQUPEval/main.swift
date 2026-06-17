@@ -19,20 +19,19 @@ struct MQUPEvalCLI {
         }
 
         if args.contains("--label") {
-            try runLabeling(pois: pois, templatesURL: templatesURL, outputURL: evalURL, alpha: HybridRankerConfiguration.defaultAlpha)
+            try runLabeling(pois: pois, templatesURL: templatesURL, outputURL: evalURL)
             return
         }
 
         if !FileManager.default.fileExists(atPath: evalURL.path) {
-            try runLabeling(pois: pois, templatesURL: templatesURL, outputURL: evalURL, alpha: HybridRankerConfiguration.defaultAlpha)
+            try runLabeling(pois: pois, templatesURL: templatesURL, outputURL: evalURL)
         }
 
-        var queries = try EvalHarness.loadQueries(from: evalURL)
+        let queries = try EvalHarness.loadQueries(from: evalURL)
         let devQueries = queries.filter { !($0.blindHoldout ?? false) }
 
+        // Labels are frozen (constraint + BM25). α is tuned on dev only; labels are never re-derived from hybrid.
         let tunedAlpha = try EvalHarness.tuneAlpha(pois: pois, devQueries: devQueries)
-        try runLabeling(pois: pois, templatesURL: templatesURL, outputURL: evalURL, alpha: tunedAlpha)
-        queries = try EvalHarness.loadQueries(from: evalURL)
 
         let blindQueries = queries.filter { $0.blindHoldout ?? false }
         let refreshedDev = queries.filter { !($0.blindHoldout ?? false) }
@@ -76,6 +75,18 @@ struct MQUPEvalCLI {
 
         let data = try JSONSerialization.data(withJSONObject: metrics, options: [.prettyPrinted, .sortedKeys])
         try data.write(to: metricsURL)
+
+        let resumeURL = repoURL(repoRoot, "docs/resume-bullet.md")
+        try ResumeBulletGenerator.write(
+            ResumeBulletGenerator.Input(
+                tunedAlpha: tunedAlpha,
+                nDCGDelta: hybridAll.nDCGAt5 - bm25All.nDCGAt5,
+                recallAt10: hybridAll.recallAt10,
+                hybridP95LatencyMs: hybridAll.p95LatencyMs
+            ),
+            to: resumeURL
+        )
+        print("Wrote resume bullet to \(resumeURL.path)")
         print("Wrote metrics to \(metricsURL.path)")
         print(String(data: data, encoding: .utf8) ?? "")
     }
@@ -116,12 +127,11 @@ struct MQUPEvalCLI {
         }
     }
 
-    private static func runLabeling(pois: [POI], templatesURL: URL, outputURL: URL, alpha: Double) throws {
+    private static func runLabeling(pois: [POI], templatesURL: URL, outputURL: URL) throws {
         let templates = try EvalHarness.loadTemplates(from: templatesURL)
-        let labeler = try SearchCoordinator(pois: pois, config: HybridRankerConfiguration(alpha: alpha))
-        let labeled = try EvalLabeler.label(templates: templates, coordinator: labeler, labelK: 10)
+        let labeled = try ConstraintRelevanceLabeler.label(templates: templates, pois: pois)
         try EvalHarness.saveQueries(labeled, to: outputURL)
-        print("Labeled \(labeled.count) queries at α=\(alpha) → \(outputURL.path)")
+        print("Labeled \(labeled.count) queries (constraint + token overlap, frozen) → \(outputURL.path)")
     }
 
     private static func metricsDict(_ metrics: EvalMetrics, alpha: Double) -> [String: Any] {

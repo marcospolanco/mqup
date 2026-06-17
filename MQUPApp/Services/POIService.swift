@@ -37,6 +37,16 @@ final class POIService {
         try? await CSSearchableIndex.default().indexAppEntities(entities)
     }
 
+    func donateEntity(for poi: POI) async {
+        try? await CSSearchableIndex.default().indexAppEntities([SpatialVenueEntity(from: poi)])
+    }
+
+    func donateSuggestedEntities() async throws {
+        let pois = try await allPOIs()
+        let entities = pois.prefix(20).map { SpatialVenueEntity(from: $0) }
+        try await CSSearchableIndex.default().indexAppEntities(entities)
+    }
+
     enum POIServiceError: Error {
         case notReady
     }

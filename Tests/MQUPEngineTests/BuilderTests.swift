@@ -24,6 +24,14 @@ final class BuilderTests: XCTestCase {
                 fixture.expectedResultsState,
                 "Fixture \(fixture.id) state mismatch"
             )
+            if let expectedTop3 = fixture.expectedTop3IDs, !expectedTop3.isEmpty {
+                let actualTop3 = submission.results.prefix(3).map { $0.poi.id.uuidString.lowercased() }
+                XCTAssertEqual(
+                    actualTop3,
+                    expectedTop3.map { $0.lowercased() },
+                    "Fixture \(fixture.id) top-3 mismatch"
+                )
+            }
         }
     }
 
@@ -52,6 +60,7 @@ final class BuilderTests: XCTestCase {
         let query: String
         let nowISO8601: String
         let expectedResultsState: String
+        let expectedTop3IDs: [String]?
         let simulateLoading: Bool
     }
 }
