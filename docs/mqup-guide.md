@@ -126,7 +126,7 @@ Use these queries as a guided tour.
 | Simple query | `pizza` | The extractor maps pizza to food and returns a normal ranked list. |
 | Attribute-heavy query | `coffee with parking and outdoor seating and wifi` | Use the row expander to check which attributes each result matched. In the current fixtures this resolves as `golden`, so treat it as a stress test for attributes rather than a guaranteed partial state. |
 | Empty result | `sushi at 4am` | The empty state should explain that no place matches all requested constraints and suggest relaxing the time constraint. |
-| Ambiguous phrase | `place to work` | This is intended to explore coffee/service/retail ambiguity. Current fixture state is `golden`, and `docs/critique-assessment.md` notes the ambiguity logic needs tightening. |
+| Ambiguous phrase | `place to work` | This explores coffee/service/retail ambiguity. The fixture now expects `ambiguous`, and rows should show category badges. |
 
 The fixture files in `fixtures/` record the expected state and top IDs for these scripted scenarios.
 
@@ -192,11 +192,11 @@ SearchResultsBuilder.buildSiriDialog(from:)
 
 That is the right architecture: Siri and the UI share the same interpretation and vocabulary.
 
-Current limitation:
+Current implementation:
 
-`docs/critique-assessment.md` records that Spotlight/App Intents are not complete per the spec. `SpatialVenueQuery` supports identifier lookup and suggested entities, but not text matching through `entities(for matching:)`. `POIService.donateEntities(for:)` exists, but it is not wired on app launch or result tap.
+`SpatialVenueQuery` supports identifier lookup, suggested entities, and string matching through `entities(matching:)`. `POIService` donates suggested entities on app bootstrap, donates search results after each query, and donates the selected result before handing off to Apple Maps.
 
-So use this section as an architecture walkthrough, not as a fully verified Siri/Spotlight demo claim.
+Use Shortcuts to invoke `SearchPlacesIntent` directly. The code path is wired; a recorded Hey Siri demo or device-level Spotlight query capture is still useful if you want external proof for an interview.
 
 ## 10. Reading The Code While You Use The App
 
@@ -234,7 +234,7 @@ Important caveats:
 
 - Latency is measured by the macOS release harness, not an iPhone device.
 - The embedding implementation is a deterministic 384-dimensional stand-in, not Core ML MiniLM.
-- `docs/critique-assessment.md` flags evaluation labeling as a known caveat against the original spec.
+- Eval labels are constraint-based and frozen before alpha tuning. They are still synthetic, not human-labeled production relevance judgments.
 
 The honest interview framing is:
 
@@ -253,6 +253,6 @@ Use this when you want to explain MQUP to someone else.
 5. Run `sushi at 4am` and show the empty state.
 6. Run `pizza` and show the simpler baseline query.
 7. Open the code path from `SearchCoordinator` to `HybridRanker` to `SearchResultsBuilder`.
-8. Be explicit about caveats: deterministic embeddings, partial Siri/Spotlight wiring, and prototype-grade labels.
+8. Be explicit about caveats: deterministic embeddings, macOS latency numbers, and synthetic relevance labels.
 
 That is the clearest story: MQUP is not a full Maps clone. It is a compact demonstration of natural-language POI query understanding, constraint-aware ranking, user-language result explanation, and an evaluation loop.

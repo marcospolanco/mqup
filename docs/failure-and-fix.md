@@ -24,7 +24,7 @@ Documented ranking errors with before/after metrics. Expand during Day 3 of the 
 
 **Diagnosis:** α=0.7 overweighted BM25 token overlap on description field.
 
-**Fix:** Tuned α on 120-query dev split (final α=0.40); added category interleaving for multi-category intents.
+**Fix:** Tuned α on 120-query dev split (current α=0.35); added category interleaving for multi-category intents.
 
 **Metrics:** nDCG@5 on ambiguous queries +0.03.
 
@@ -52,19 +52,19 @@ Documented ranking errors with before/after metrics. Expand during Day 3 of the 
 
 **Diagnosis:** Labels listed 20 category UUIDs unrelated to ranker top-10; debug build inflation; α not tuned.
 
-**Fix:** `ConstraintRelevanceLabeler` — constraint satisfaction + token-overlap gold labels, frozen before α tuning (no hybrid oracle, no re-label after tune).
+**Fix:** `ConstraintRelevanceLabeler` - constraint satisfaction + token-overlap gold labels, frozen before α tuning (no hybrid oracle, no re-label after tune).
 
-**Metrics:** Honest labels: Recall@10 ~0.12, nDCG delta ~+0.01 (see `metrics.json`). Previous oracle labels inflated recall to ~1.0.
+**Metrics:** Current honest labels: Recall@10 0.95, nDCG delta +0.33, hybrid p95 55ms on the macOS release harness (see `metrics.json`). Previous oracle labels inflated recall to ~1.0 without proving relevance.
 
 ---
 
 ## 5. Resume bullet drift (fixed 2026-06-16)
 
-**Wrong result:** `docs/resume-bullet.md` cited α=0.55 and BM25-only latency while `metrics.json` reported α=0.40 and hybrid p95.
+**Wrong result:** `docs/resume-bullet.md` cited stale alpha and latency values that did not match `metrics.json`.
 
 **Diagnosis:** Manual doc edits after re-tuning; no single source of truth.
 
-**Fix:** `ResumeBulletGenerator` — `MQUPEval` regenerates `docs/resume-bullet.md` from measured output every run.
+**Fix:** `ResumeBulletGenerator` - `MQUPEval` regenerates `docs/resume-bullet.md` from measured output every run.
 
 **Metrics:** N/A (documentation integrity).
 

@@ -37,7 +37,7 @@ Core job: Find a specific place that satisfies multiple constraints at once
 Technical proficiency: Average; expects Siri/Maps to "just understand"
 
 ## WHAT THEY BELIEVE THEY ARE DOING
-"Asking Maps for the place I want" — NOT "keyword-searching a POI database"
+"Asking Maps for the place I want" - NOT "keyword-searching a POI database"
 
 ## QUESTIONS THEY WAKE UP ASKING
 - Where can I get [X] that also has [Y] and is open [now]?
@@ -264,34 +264,34 @@ Returns `.ambiguous` when:
 
 ## 5. Implementation Plan
 
-### 5.1 Phase 1 — Data & Infrastructure
+### 5.1 Phase 1 - Data & Infrastructure
 
 - 2,000 synthetic POIs (SF/Cupertino) in `data/pois.json`
 - SQLite FTS5 for BM25 (k1=1.2, b=0.75)
 - Evaluation harness skeleton (30 queries → 150)
 - CI: tests + eval on every push
 
-### 5.2 Phase 2 — Retrieval Engines
+### 5.2 Phase 2 - Retrieval Engines
 
 - Embedding model: deterministic 384-dim vectors (Core ML MiniLM staged, see `models/README.md`)
 - `EmbeddingIndex`: brute-force cosine
 - `HybridRanker`: α-blend, tuned on dev split
 - `QueryIntentExtractor`: rules-based (category, time, attributes)
 
-### 5.3 Phase 3 — Iteration
+### 5.3 Phase 3 - Iteration
 
 - Expand eval set to 150 queries
 - Document 3-5 failure cases in `docs/failure-and-fix.md`:
   - Query, wrong result, diagnosis, fix, before/after metrics
 
-### 5.4 Phase 4 — Integration
+### 5.4 Phase 4 - Integration
 
 - `SpatialVenueEntity`, `SearchPlacesIntent`
 - `entities(for matching:)` backed by ranker
 - Spotlight donation on launch + result tap
 - Navigation handoff via `MKMapItem.openInMaps`
 
-### 5.5 Phase 5 — Presentation
+### 5.5 Phase 5 - Presentation
 
 - `SearchResultsView`, `ResultRowView`, `EmptyStateView`
 - `buildSearchResultsView()` builder

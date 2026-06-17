@@ -15,6 +15,7 @@ public struct HybridRankerConfiguration: Sendable {
 public final class HybridRanker: Sendable {
     private let pois: [POI]
     private let poiByID: [UUID: POI]
+    private let searchableTextByID: [UUID: String]
     private let bm25: BM25Index
     private let embeddings: EmbeddingIndex
     private let config: HybridRankerConfiguration
@@ -22,6 +23,9 @@ public final class HybridRanker: Sendable {
     public init(pois: [POI], config: HybridRankerConfiguration = HybridRankerConfiguration()) throws {
         self.pois = pois
         self.poiByID = Dictionary(uniqueKeysWithValues: pois.map { ($0.id, $0) })
+        self.searchableTextByID = Dictionary(uniqueKeysWithValues: pois.map { poi in
+            (poi.id, "\(poi.name) \(poi.description) \(poi.category)".lowercased())
+        })
         self.bm25 = try BM25Index(pois: pois)
         self.embeddings = EmbeddingIndex(pois: pois)
         self.config = config
@@ -39,8 +43,9 @@ public final class HybridRanker: Sendable {
         let semanticHits = embeddings.search(vector: queryVector, limit: 200)
             .filter { candidateIDs.contains($0.poiID) }
 
-        var blendIDs = Set(lexicalHits.prefix(80).map(\.poiID))
-        blendIDs.formUnion(semanticHits.prefix(80).map(\.poiID))
+        var blendIDs = Set(lexicalHits.prefix(60).map(\.poiID))
+        blendIDs.formUnion(semanticHits.prefix(60).map(\.poiID))
+        blendIDs.formUnion(qualityCandidateIDs(intent: intent, candidates: candidates, tokens: tokens, limit: 60))
         if blendIDs.isEmpty {
             blendIDs = candidateIDs
         } else {
@@ -49,7 +54,8 @@ public final class HybridRanker: Sendable {
 
         var blended = blend(lexical: lexicalHits, semantic: semanticHits, candidateIDs: blendIDs)
         blended = applySoftDemotion(intent: intent, results: blended)
-        blended.sort { $0.blendedScore > $1.blendedScore }
+        blended = applyConstraintQuality(intent: intent, results: blended, tokens: tokens)
+        blended.sort(by: rankedBefore)
         if intent.categories.count >= 3 {
             blended = interleaveByCategory(blended, categories: intent.categories)
         }
@@ -124,6 +130,27 @@ public final class HybridRanker: Sendable {
         }
     }
 
+    public func applyConstraintQuality(
+        intent: QueryIntent,
+        results: [RankedResult],
+        tokens: [String]
+    ) -> [RankedResult] {
+        guard config.alpha < 1.0 else { return results }
+        return results.map { result in
+            let attributeQuality = preferredAttributeQuality(intent: intent, poi: result.poi)
+            let tokenScore = Double(tokenOverlapScore(poi: result.poi, tokens: tokens))
+            let score = (attributeQuality * 100) + tokenScore
+            return RankedResult(
+                poi: result.poi,
+                blendedScore: score,
+                lexicalScore: result.lexicalScore,
+                semanticScore: result.semanticScore,
+                constraintsSatisfied: result.constraintsSatisfied,
+                constraintsMissed: result.constraintsMissed
+            )
+        }
+    }
+
     private func interleaveByCategory(_ results: [RankedResult], categories: [String]) -> [RankedResult] {
         var buckets = Dictionary(uniqueKeysWithValues: categories.map { ($0, [RankedResult]()) })
         for result in results {
@@ -145,6 +172,13 @@ public final class HybridRanker: Sendable {
         return output
     }
 
+    private func rankedBefore(_ lhs: RankedResult, _ rhs: RankedResult) -> Bool {
+        if lhs.blendedScore != rhs.blendedScore {
+            return lhs.blendedScore > rhs.blendedScore
+        }
+        return lhs.poi.id.uuidString < rhs.poi.id.uuidString
+    }
+
     private func normalizedScores(_ pairs: [(UUID, Double)]) -> [UUID: Double] {
         guard let minScore = pairs.map(\.1).min(), let maxScore = pairs.map(\.1).max() else {
             return [:]
@@ -159,6 +193,67 @@ public final class HybridRanker: Sendable {
             }
         }
         return output
+    }
+
+    private func preferredAttributeQuality(intent: QueryIntent, poi: POI) -> Double {
+        guard !intent.preferredAttributes.isEmpty else { return 1.0 }
+        let matches = intent.preferredAttributes.filter { poi.attributes.contains($0) }.count
+        return Double(matches) / Double(intent.preferredAttributes.count)
+    }
+
+    private func qualityCandidateIDs(
+        intent: QueryIntent,
+        candidates: [POI],
+        tokens: [String],
+        limit: Int
+    ) -> Set<UUID> {
+        if intent.categories.count >= 3 {
+            var output = Set<UUID>()
+            let perCategoryLimit = max(1, limit / intent.categories.count)
+            for category in intent.categories {
+                let categoryCandidates = candidates.filter { $0.category == category }
+                output.formUnion(
+                    flatQualityCandidateIDs(
+                        intent: intent,
+                        candidates: categoryCandidates,
+                        tokens: tokens,
+                        limit: perCategoryLimit
+                    )
+                )
+            }
+            return output
+        }
+        return flatQualityCandidateIDs(intent: intent, candidates: candidates, tokens: tokens, limit: limit)
+    }
+
+    private func flatQualityCandidateIDs(
+        intent: QueryIntent,
+        candidates: [POI],
+        tokens: [String],
+        limit: Int
+    ) -> Set<UUID> {
+        let ranked = candidates.sorted { lhs, rhs in
+            let leftAttributes = preferredAttributeQuality(intent: intent, poi: lhs)
+            let rightAttributes = preferredAttributeQuality(intent: intent, poi: rhs)
+            if leftAttributes != rightAttributes {
+                return leftAttributes > rightAttributes
+            }
+            let leftTokens = tokenOverlapScore(poi: lhs, tokens: tokens)
+            let rightTokens = tokenOverlapScore(poi: rhs, tokens: tokens)
+            if leftTokens != rightTokens {
+                return leftTokens > rightTokens
+            }
+            return lhs.id.uuidString < rhs.id.uuidString
+        }
+        return Set(ranked.prefix(limit).map(\.id))
+    }
+
+    private func tokenOverlapScore(poi: POI, tokens: [String]) -> Int {
+        guard !tokens.isEmpty else { return 0 }
+        let haystack = searchableTextByID[poi.id] ?? ""
+        return tokens.reduce(0) { score, token in
+            score + (haystack.contains(token) ? 1 : 0)
+        }
     }
 
     private func annotateConstraints(intent: QueryIntent, result: RankedResult, now: Date) -> RankedResult {
