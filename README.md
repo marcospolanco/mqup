@@ -6,6 +6,12 @@ MQUP shows how to build the kind of search experience users expect from Siri and
 
 This project is meant to be **read, run, forked, and extended**. Whether you're exploring hybrid retrieval, learning App Intents, or sketching your own local-first search feature, you should be able to clone the repo and have something working in minutes.
 
+<p align="center">
+  <img src="docs/assets/mqup-screenshot.png" alt="MQUP iOS app showing a map, search bar, and ranked coffee shop results with match explanations" width="320">
+</p>
+
+<p align="center"><em>SwiftUI + MapKit results screen (mockup from live fixture data). Run the iOS app in Xcode for the real UI.</em></p>
+
 ---
 
 ## Why this exists
